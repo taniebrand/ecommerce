@@ -1,40 +1,25 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from './CartWidget';
-import './CartWidget.css';
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import CartWidget from "./CartWidget/CartWidget";
 
-const NavBar = () =>{
-    return (
-        <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+const NavBar = () => {
+  return (
+    <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Satelit.Art</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#nosotros">Nosotros</Nav.Link>
-            <Nav.Link href="#contacto">Contacto</Nav.Link>
-            <NavDropdown title="Obras" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#foto">Foto</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#instalacion">
-                Instalacion
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link>Cart</Nav.Link>
-            <CartWidget />
-            
-          </Nav>
-        </Navbar.Collapse>
+        <Navbar.Brand as={Link} to='/'>
+          Tienda de Productos
+        </Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link as={Link} to='/'>
+              Home
+          </Nav.Link>
+          <Nav.Link as={Link} to='/category/bebidas'>Bebidas</Nav.Link>
+          <Nav.Link as={Link} to='/category/alimentos'>Alimentos</Nav.Link>
+        </Nav>
+        <CartWidget />
       </Container>
     </Navbar>
-        </div>
-    )
+  )
 }
+
 export default NavBar;
