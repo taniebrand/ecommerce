@@ -10,12 +10,14 @@ const Item = ({ product }) => {
         <Card.Title>{product.title}</Card.Title>
         <Card.Text>
           $ {product.price}
+          </Card.Text>
+          <Card.Text>
           {product.description}
         </Card.Text>
         <Link to={`/item/${product.id}`}> 
         <Button variant="primary">
           
-          Go somewhere
+          View
          
           </Button>
           </Link>
